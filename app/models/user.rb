@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules.
-  # For reference: :validatable, :Confirmable, :rememberable
+  # For reference: :Confirmable, :rememberable
   devise :database_authenticatable, :timeoutable,
-         :recoverable, :registerable, :trackable
+         :recoverable, :registerable, :trackable, :validatable
 
   include DeviseTokenAuth::Concerns::User
 
@@ -15,5 +15,13 @@ class User < ApplicationRecord
     if self.new_record?
       self.role ||= :dev
     end
+  end
+
+  def admin?
+    role.to_sym == :admin
+  end
+
+  def super_admin?
+    role.to_sym == :super_admin
   end
 end

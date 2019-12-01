@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+
   mount_devise_token_auth_for 'User', at: 'auth'
 
-  get 'welcome/index'
+  get '/', as: :root, controller: :root, action: :index
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  root 'welcome#index'
+  scope 'api/v1', module: 'api_v1', defaults: { format: 'json' } do
+    resources :companies
+    resources :users
+    resources :repositories
+  end
 
 end
