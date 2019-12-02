@@ -1,0 +1,5 @@
+# https://github.com/jmettraux/rufus-scheduler#a-note-about-timezones
+hard_work:
+   cron: '*/1 * * * *'
+   class: 'HardWorker'
+   queue: critical

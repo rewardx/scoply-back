@@ -24,6 +24,12 @@
 .byebug_history
 
 # Ignore all configs
-/config/database.yml
+config/database.yml
+config/puma.rb
+config/secrets.yml
+config/sidekiq.yml
+config/sidekiq_crons.yml
+
 Gemfile.lock
+
 shared
