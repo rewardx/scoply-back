@@ -25,6 +25,7 @@
 
 # Ignore all configs
 config/database.yml
+config/initializers/devise.rb
 config/puma.rb
 config/secrets.yml
 config/sidekiq.yml
